@@ -17,6 +17,7 @@
                 <li><a href="manage-category.php">Danh mục</a></li>
                 <li><a href="manage-food.php">Thức ăn</a></li>
                 <li><a href="manage-order.php">Order</a></li>
+                <li><a href="logout.php">Đăng xuất</a></li>
             </ul>
         </div>
     </div>

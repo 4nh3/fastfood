@@ -6,7 +6,7 @@
 .wrapper{
     /* border: 1px solid black; */
     padding: 1%;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 .text-center{
@@ -41,7 +41,7 @@
     padding: 3% 0;
 }
 .col-4{
-    width: 18%;
+    width: 10%;
     background-color: white;
     margin: 1%;
     padding: 2%;
@@ -93,3 +93,36 @@ table tr td{
     color: white;
 }
 
+.custom-table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+  
+  .custom-table td {
+    padding: 8px;
+    /* border: 1px solid #ddd; */
+  }
+  
+  .input-title {
+    margin-right: 5px;
+  }
+  
+  .input-title::placeholder {
+    font-style: italic;
+    color: #999;
+  }
+  
+  .radio-cell {
+    vertical-align: middle;
+  }
+  
+  .radio-input {
+    margin-right: 5px;
+  }
+  
+  .radio-label {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 15px;
+  }
+  
