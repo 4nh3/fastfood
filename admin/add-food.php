@@ -111,8 +111,9 @@
         }else{
             $active = 'No';
         }
-
+        $loggedInUserID = $_SESSION['loggedInUserID']; 
         $sql = "INSERT INTO thucan SET
+            `user_id` = '$loggedInUserID',
             `title` = '$title',
             `description` = '$description',
             `price` = '$price',

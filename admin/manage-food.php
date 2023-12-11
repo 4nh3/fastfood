@@ -17,13 +17,18 @@
                         <th>Hoạt động</th>    
                     </tr>
                     <?php
-                        $sql = "SELECT * FROM thucan";
+                        // $sql = "SELECT * FROM thucan";
+                        $loggedInUserID = $_SESSION['loggedInUserID'];
+                        $sql = "SELECT *, `thucan`.`id` AS thucan_id FROM thucan 
+                                   JOIN admin ON `thucan`.`user_id` = `admin`.`id` 
+                                   WHERE `admin`.`id` = '$loggedInUserID'";
+               
                         $res = mysqli_query($conn, $sql);
                         $count = mysqli_num_rows($res);
                         $stt = 1;
                         if($count > 0){
                             while($row = mysqli_fetch_array($res)){
-                                $id = $row["id"];
+                                $id = $row["thucan_id"];
                                 $title = $row["title"];
                                 $description = $row["description"];
                                 $price = $row["price"];
@@ -50,7 +55,23 @@
                                                     }
                                                 ?>
                                         </td>
-                                        <td><?php echo $category; ?></td>
+                                        <td>
+                                            <?php
+                                               $sql2 = "SELECT * FROM `danhmuc` WHERE `id` = $category";
+                                               $res2 = mysqli_query($conn, $sql2);
+                                                if ($res2) {
+                                                   $category_row = mysqli_fetch_assoc($res2);
+                                                   if ($category_row) {
+                                                       $category_title = $category_row['title'];
+                                                       echo "$category_title";
+                                                   } else {
+                                                       echo "Không tìm thấy thông tin của danh mục";
+                                                   }
+                                               } else {
+                                                   echo "Lỗi trong việc truy vấn cơ sở dữ liệu";
+                                               }
+                                            ?>
+                                        </td>
                                         <td><?php echo $featured; ?></td>
                                         <td><?php echo $active; ?></td>
                                         <td>

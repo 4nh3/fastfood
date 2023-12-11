@@ -7,8 +7,28 @@
         <?php
         $id = $_GET['id'];
         ?>
+        <form class="mx-1 mx-md-4" method="POST" >
+            <div class="divupdate" >
+                <label for="exampleInputFullname" class="form-label">Nhập lại mật khẩu</label>
+                <input type="password" name="current-password" class="form-control" id="exampleInputPassword1">
+            </div>
+            
+            <div class="divupdate">
+                <label for="exampleInputUsername" class="form-label">Nhập mật khẩu mới</label>
+                <input type="password" name="new-password" class="form-control" id="exampleInputPassword2">
+            </div>
+            <div class="divupdate">
+                <button type="submit" name="submit" class="btn btn-primary btn-lg">Cập nhật</button>
+            </div>
+            <div class="divupdate">
+                <label for="exampleInputUsername" class="form-label">Nhập lại mật khẩu mới</label>
+                <input type="password" name="confirm-password" class="form-control" id="exampleInputPassword3">
+            </div>
+            
+            
+        </form>
 
-        <form action="" method="POST">
+        <!-- <form action="" method="POST">
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu cũ</label>
                 <input type="password" name="current-password" class="form-control" id="exampleInputPassword1">
@@ -22,7 +42,7 @@
                 <input type="password" name="confirm-password" class="form-control" id="exampleInputPassword3">
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Nhập</button>
-        </form>
+        </form> -->
 
         <?php
         if(isset($_POST["submit"])) {
@@ -42,7 +62,7 @@
                             $res2 = mysqli_query($conn, $sql2);
                             if ($res2 == TRUE) {
                                 echo "<script>alert('Cập nhật thành công!');</script>";
-                                echo "<script>window.location.href='manage-admin.php';</script>";
+                                echo "<script>window.location.href='index.php';</script>";
                             } else {
                                 echo "<script>alert('Lỗi khi cập nhật');</script>";
                             }

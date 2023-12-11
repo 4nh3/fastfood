@@ -13,11 +13,17 @@
         <div class="wrapper">
             <ul>
                 <li><a href="index.php">Trang chủ</a></li>
-                <li><a href="manage-admin.php">Người dùng</a></li>
+                <!-- <li><a href="manage-admin.php">Người dùng</a></li> -->
                 <li><a href="manage-category.php">Danh mục</a></li>
                 <li><a href="manage-food.php">Thức ăn</a></li>
                 <li><a href="manage-order.php">Order</a></li>
                 <li><a href="logout.php">Đăng xuất</a></li>
+                <li><a href="update-admin.php">Thông tin</a></li>
+                <li><div class="logo">
+                <a href="index.php" title="Logo">
+                    <img src="../images/logo.jpg" width="100px" alt="Restaurant Logo" class="img-responsive">
+                </a>
+            </div></li>
             </ul>
         </div>
     </div>

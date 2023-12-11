@@ -1,4 +1,4 @@
-<?php include('partials/menu.php') ?>
+<?php include('partials/menu.php') ?> 
 <div class="main-content">
         <div class="wrapper">
             <h1>Danh mục</h1>
@@ -14,13 +14,19 @@
                         <th>Hoạt động</th>    
                     </tr>
                         <?php
-                            $sql = "SELECT * FROM danhmuc";
+                           $loggedInUserID = $_SESSION['loggedInUserID'];
+
+                           $sql = "SELECT *, `danhmuc`.`id` AS danhmuc_id FROM danhmuc 
+                                   JOIN admin ON `danhmuc`.`user_id` = `admin`.`id` 
+                                   WHERE `admin`.`id` = '$loggedInUserID'";
+               
                             $res = mysqli_query($conn, $sql);
                             $count = mysqli_num_rows($res);
                             $stt = 1;
                             if ($count > 0) {
                                 while ($row = mysqli_fetch_array($res)) {
-                                    $id = $row["id"];
+                                    $id = $row["danhmuc_id"];
+                                    // echo $id;
                                     $title = $row["title"];
                                     $image_name = $row['image_name'];
                                     $featured = $row['featured'];

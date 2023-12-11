@@ -40,8 +40,8 @@
     background-color: rgb(240, 240, 240);
     padding: 3% 0;
 }
-.col-4{
-    width: 10%;
+.col4{
+    width: 23%;
     background-color: white;
     margin: 1%;
     padding: 2%;
@@ -126,3 +126,16 @@ table tr td{
     margin-right: 15px;
   }
   
+  .ordertd{
+    text-align: center;
+  }
+  .orderth{
+    padding: 10px;
+  }
+
+  .divupdate{
+    width: 30%;
+    float: left;
+    margin: 1% 6%;
+    padding: 1%;
+  }

@@ -67,7 +67,7 @@
                         if(isset($_POST['featured'])) {
                             $featured = $_POST['featured'];
                         }else{
-                            $featured = 'No';
+                            $featured = 'No';   
                         }
                         
                         if(isset($_POST['active'])) {
@@ -76,11 +76,14 @@
                             $active = 'No';
                         }
 
+                        $loggedInUserID = $_SESSION['loggedInUserID']; 
+
                         $sql = "INSERT INTO danhmuc SET 
-                            title = '$title',
-                            image_name = '$image_name',
-                            featured = '$featured',
-                            active = '$active'
+                            `user_id` = '$loggedInUserID',
+                            `title` = '$title',
+                            `image_name` = '$image_name',
+                            `featured` = '$featured',
+                            `active` = '$active'
                         ";
                         $res = mysqli_query($conn, $sql);
                         if ($res == TRUE) {

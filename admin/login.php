@@ -1,4 +1,45 @@
+<?php
+session_start(); // Bắt đầu session
 
+if (isset($_POST["submit"])) {
+    include('../config/contants.php');
+
+    $emailOrContact = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    $sql = "SELECT * FROM `admin` WHERE (`email` = ? OR `contact` = ?) AND `password` = ?";
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param("sss", $emailOrContact, $emailOrContact, $password);
+    $stmt->execute();
+
+    $res = $stmt->get_result();
+
+    if ($res) {
+        $count = $res->num_rows;
+        if ($count == 1) {
+            $userData = $res->fetch_assoc(); // Lấy dữ liệu người dùng từ kết quả truy vấn
+
+            // Lưu thông tin người dùng vào session
+            $_SESSION['loggedInUser'] = $userData;
+            $_SESSION['loggedInUserID'] = $userData['id'];
+
+            echo "<script>alert('Đăng nhập thành công!');</script>";
+            echo "<script>window.location.href='index.php';</script>";
+            exit(); // Thoát khỏi kịch bản sau khi chuyển hướng
+        } else {
+            echo "<script>alert('Đăng nhập không thành công!');</script>";
+            echo "<script>window.location.href='login.php';</script>";
+            exit(); // Thoát khỏi kịch bản sau khi chuyển hướng
+        }
+    } else {
+        echo "Lỗi trong quá trình thực thi truy vấn: " . mysqli_error($conn);
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +57,7 @@
       <form action="#" method="POST" >
         <div class="field">
             <span class="fas fa-user"></span>
-            <input type="text" required name="username" placeholder="Email hoặc Số điện thoại" >
+            <input type="text" required name="email" placeholder="Email hoặc Số điện thoại" >
             <!-- <label>Email hoặc Số điện thoại</label> -->
         </div>
         <div class="field">
@@ -27,35 +68,9 @@
         <div class="forgot-pass"><a href="#">Quên mật khẩu?</a></div>
         <button type="submit" name="submit" value="login" >Đăng nhập</button>
         <div class="signup">Chưa có tài khoản ?
-            <a href="#">Đăng kí ngay</a>
+            <a href="add-admin.php">Đăng kí ngay</a>
         </div>
       </form>
   </div>
 </body>
 </html>
-
-<?php
-    if(isset($_POST["submit"])){
-        include('../config/contants.php');
-
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-        $sql = "SELECT * FROM `admin` WHERE `username` = '$username' AND `password` = '$password'";
-        
-        $res = mysqli_query($conn, $sql);
-
-        if($res){
-            $count = mysqli_num_rows($res);
-            if($count == 1){
-                echo "<script>alert('Đăng nhập thành công!');</script>";
-                echo "<script>window.location.href='manage-admin.php';</script>";
-            } else {
-                echo "<script>alert('Đăng nhập không thành công!');</script>";
-                echo "<script>window.location.href='login.php';</script>";
-            }
-        } else {
-            echo "Lỗi trong quá trình thực thi truy vấn: " . mysqli_error($conn);
-        }
-    }
-?>
