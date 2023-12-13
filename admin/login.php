@@ -65,7 +65,7 @@ if (isset($_POST["submit"])) {
             <input type="password" name="password" placeholder="Mật khẩu" >
             <!-- <label>Mật khẩu</label> -->
         </div>
-        <div class="forgot-pass"><a href="#">Quên mật khẩu?</a></div>
+        <div class="forgot-pass"><a href="reset-password.php">Quên mật khẩu?</a></div>
         <button type="submit" name="submit" value="login" >Đăng nhập</button>
         <div class="signup">Chưa có tài khoản ?
             <a href="add-admin.php">Đăng kí ngay</a>

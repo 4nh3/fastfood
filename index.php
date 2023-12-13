@@ -1,22 +1,19 @@
 <?php   
+    $currentPage = 'index';
     include('partials-front/menu.php');
 ?>
-    <!-- Navbar Section Ends Here -->
 
-    <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
             
             <form action="food-search.php" method="POST">
-                <input type="search" name="search" placeholder="Search for Food.." required>
+                <input type="search" name="search" placeholder="Tìm kiếm" required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
-
-    <!-- CAtegories Section Starts Here -->
+   
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Khám phá thức ăn</h2>

@@ -1,4 +1,5 @@
 <?php   
+    $currentPage = 'index';
     include('partials-front/menu.php');
 ?>
 

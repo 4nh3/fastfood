@@ -98,6 +98,8 @@ fieldset{
 
 .menu{
     line-height: 60px;
+    width: 70%;
+    float: right;
 }
 .menu ul{
     list-style-type: none;
@@ -259,4 +261,60 @@ fieldset{
     .order{
         width: 100%;
     }
+}
+
+/* Thiết lập cho phần filter */
+.filter {
+    margin: -10px 0;
+    width: 30%;
+    display: flex;
+}
+
+/* Thiết lập cho select box */
+.selectfi {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"%3E%3Cpath fill="currentColor" d="M192 256l128 128 128-128z"/%3E%3C/svg%3E'); /* Icon mũi tên (chevron down) */
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 10px);
+    background-position-y: center;
+
+
+}
+
+/* Định dạng khi select box được chọn */
+.selectfi:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+
+/* Thiết lập kiểu dáng cho nút Lọc */
+.filter-button {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #e4ecee;
+    color: rgb(37, 37, 37);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .filter-button:hover {
+    background-color: #b4b5b4;
+  }
+  .hidden {
+    visibility: hidden; 
 }

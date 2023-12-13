@@ -5,7 +5,9 @@
             <h1>Thống kê</h1>
 
             <?php
-               $sql = "SELECT * FROM danhmuc";
+               $loggedInUserID = $_SESSION['loggedInUserID'];
+
+               $sql = "SELECT * FROM danhmuc  WHERE user_id = '$loggedInUserID'";
                $res = mysqli_query($conn, $sql);
                $count = mysqli_num_rows($res);
             ?>
@@ -17,7 +19,7 @@
             </div>
 
             <?php
-               $sql2 = "SELECT * FROM thucan";
+               $sql2 = "SELECT * FROM thucan  WHERE user_id = '$loggedInUserID'";
                $res2 = mysqli_query($conn, $sql2);
                $count2 = mysqli_num_rows($res2);
             ?>
@@ -29,7 +31,7 @@
             </div>
 
             <?php
-               $sql3 = "SELECT * FROM table_order";
+               $sql3 = "SELECT * FROM table_order  WHERE user_id = '$loggedInUserID'";
                $res3 = mysqli_query($conn, $sql3);
                $count3 = mysqli_num_rows($res3);
             ?>
@@ -41,7 +43,7 @@
             </div>
 
             <?php
-               $sql4 = "SELECT SUM(total) AS total  FROM table_order WHERE status = 'Delivered' ";
+               $sql4 = "SELECT SUM(total) AS total  FROM table_order WHERE status = 'Delivered' AND user_id = '$loggedInUserID'";
                $res4 = mysqli_query($conn, $sql4);
                $row4 = mysqli_fetch_array($res4);
 
