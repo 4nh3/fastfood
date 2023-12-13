@@ -18,16 +18,14 @@ include('partials-front/menu.php');
 
         <?php
         // Tạo truy vấn SQL ban đầu
-        $sql = "SELECT thucan.id, thucan.title, thucan.price, thucan.description, thucan.image_name 
-                FROM thucan
-                INNER JOIN admin ON thucan.user_id = admin.id
-                WHERE thucan.active = 'Yes'";
-
-        // Kiểm tra xem có tỉnh/thành phố được chọn không
+        $sql = "SELECT `thucan`.*, `admin`.`username`, `admin`.`address`
+                FROM `thucan`
+                INNER JOIN admin ON `thucan`.`user_id` = `admin`.`id`
+                WHERE `thucan`.`active` = 'Yes'";
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['province'])) {
             $selectedProvince = $_POST['province'];
 
-            // Thêm điều kiện cho truy vấn SQL nếu có tỉnh/thành phố được chọn
+         
             if ($selectedProvince !== '1') {
                 $sql .= " AND SUBSTRING_INDEX(admin.address, ', ', -1) = '$selectedProvince'";
             }
@@ -43,6 +41,8 @@ include('partials-front/menu.php');
                 $price = $row['price'];
                 $description = $row['description'];
                 $image_name = $row['image_name'];
+                $username = $row['username'];
+                $address = $row['address'];
                 ?>
                 <div class="food-menu-box">
                     <div class="food-menu-img">
@@ -63,8 +63,13 @@ include('partials-front/menu.php');
                         <p class="food-detail">
                             <?php echo $description; ?>
                         </p>
+                        
+                        <p class="food-detail"><i class="fas fa-store"></i><?php echo " ". $username; ?></p>
+                        
+                        <p class="food-detail"> <i class="fas fa-map-marker"></i><?php echo " ".$address; ?></p>
+                                    
                         <br>
-                        <a href="order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                        <a href="order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Đặt hàng ngay</a>
                     </div>
                 </div>
                 <?php
