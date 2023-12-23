@@ -11,10 +11,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 .container{
-    width: 80%;
+    width: 100%;
+    margin: 0 5% 0 14%;
+    padding: 1%;
+    /* display: flex; */
+}
+.containers{
+    width: 100%;
     margin: 0 auto;
     padding: 1%;
     /* display: flex; */
+}
+h2{
+    margin-right: 10%;
 }
 .img-responsive{
     width: 80%;
@@ -91,14 +100,14 @@ fieldset{
 /* CSSS for navbar section */
 
 .logo{
-    width: 10%;
+    width: 20%;
     float: left;
 }
 
 
 .menu{
     line-height: 60px;
-    width: 70%;
+    width: 100%;
     float: right;
 }
 .menu ul{
@@ -204,6 +213,7 @@ fieldset{
 .order-label{
     margin-bottom: 1%; 
     font-weight: bold;
+    display: flex;
 }
 
 
@@ -274,7 +284,7 @@ fieldset{
 /* Thiết lập cho select box */
 .selectfi {
     padding: 10px;
-    width: 200px;
+    width: 130px;
     border: 1px solid #ccc;
     border-radius: 5px;
     appearance: none;
@@ -319,3 +329,31 @@ fieldset{
   .hidden {
     visibility: hidden; 
 }
+
+.button-container {
+    display: flex;
+}
+.no-border {
+    border: none;
+    background-color: white;
+}
+
+.divupdate{
+    width: 30%;
+    float: left;
+    margin: 1% 6%;
+    padding: 1%;
+  }
+
+  .quantity{
+    /* background-color: white; */
+    width: 70px;
+    text-align: center;
+  }
+
+  .total-amount{
+    width: 40%;
+    margin: 0 260px;
+    font-weight: bold;
+    font-size: 20px;
+  }

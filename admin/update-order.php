@@ -23,7 +23,7 @@
                             $status = $row['status'];
                             $customer_name = $row['customer_name'];
                             $customer_contact = $row['customer_contact'];
-                            $customer_email = $row['customer_email'];
+                            // $customer_email = $row['customer_email'];
                             $customer_address = $row['customer_address'];
                         }
                     }else{
@@ -79,12 +79,12 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <!-- <tr>
                         <td class="label-cell">Email</td>
                         <td class="label-cell">
-                            <input type="email" name="customer_email" value="<?php echo $customer_email; ?>">
+                            <input type="email" name="customer_email" value="<?php //echo $customer_email; ?>">
                         </td>
-                    </tr>
+                    </tr> -->
 
                     <tr>
                         <td class="label-cell">Địa chỉ</td>
@@ -113,7 +113,7 @@
                             $status = $_POST['status'];
                             $customer_name = $_POST['customer_name'];
                             $customer_contact = $_POST['customer_contact'];
-                            $customer_email = $_POST['customer_email'];
+                            // $customer_email = $_POST['customer_email'];
                             $customer_address = $_POST['customer_address'];
 
                             $sql2 = " UPDATE table_order SET
@@ -122,7 +122,7 @@
                                 `status` = '$status',
                                 `customer_name` = '$customer_name',
                                 `customer_contact` = '$customer_contact',
-                                `customer_email` = '$customer_email',
+                                -- `customer_email` = '$customer_email',
                                 `customer_address` = '$customer_address'
                                 WHERE `id` = $id
                             ";

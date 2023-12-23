@@ -19,13 +19,18 @@
                     </tr>
                     <?php
                         $user_id = $_SESSION['loggedInUserID'];
-                        $sql = "SELECT * FROM table_order WHERE `user_id` = '$user_id' ORDER BY id DESC ";
+                        $sql = "SELECT table_order.*, `table_order`.`id` AS `order_id`, customer.*
+                                FROM table_order
+                                INNER JOIN customer ON `table_order`.`customer_id` = `customer`.`id`
+                                WHERE `table_order`.`user_id` = '$user_id'
+                                ORDER BY `table_order`.`id` DESC";
+
                         $res = mysqli_query($conn, $sql);
                         $count = mysqli_num_rows($res);
                         $stt = 1;
                         if ($count > 0) {
                             while ($row = mysqli_fetch_array($res)) {
-                                $id = $row['id'];
+                                $id = $row['order_id'];
                                 $food = $row['food'];
                                 $price = $row['price'];
                                 $qty = $row['qty'];
@@ -34,7 +39,7 @@
                                 $status = $row['status'];
                                 $customer_name = $row['customer_name'];
                                 $customer_contact = $row['customer_contact'];
-                                $customer_email = $row['customer_email'];
+                                $customer_email = $row['email'];
                                 $customer_address = $row['customer_address'];
 
                                 ?>

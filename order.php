@@ -1,4 +1,5 @@
 <?php   
+    $currentPage = 'index';
     include('partials-front/menu.php');
 ?>
 
@@ -23,13 +24,13 @@
 ?>
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search">
-        <div class="container">
+        <div class="container1">
             
-            <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
+            <h2 class="text-center text-white">Xác nhận đơn hàng</h2>
 
             <form action="" class="order" method="POST" >
                 <fieldset>
-                    <legend>Selected Food</legend>
+                    <legend>Món ăn</legend>
 
                     <div class="food-menu-img">
                         <?php 
@@ -60,7 +61,7 @@
                 </fieldset>
                 
                 <fieldset>
-                    <legend>Delivery Details</legend>
+                    <legend>Chi tiết thông tin khách hàng</legend>
                     <div class="order-label">Họ và tên</div>
                     <input type="text" name="name" placeholder="Họ và tên" class="input-responsive" required>
 
@@ -73,12 +74,14 @@
                     <div class="order-label">Địa chỉ</div>
                     <textarea name="address" rows="10" placeholder="Địa chỉ" class="input-responsive" required></textarea>
 
-                    <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Đặt hàng" class="btn btn-primary">
                 </fieldset>
 
             </form>
             <?php
                 if(isset($_POST['submit'])){
+                    // echo $_SESSION['loggedInUser'];
+                    if (isset($_SESSION['loggedInUser'])) {
                     $food = $_POST['food'];
                     $price = $_POST['price'];
                     $qty = $_POST['qty'];
@@ -87,8 +90,9 @@
                     $status = "Ordered";
                     $customer_name = $_POST['name'];
                     $customer_contact = $_POST['contact'];
-                    $customer_email = $_POST['email'];
+                    // $customer_email = $_POST['email'];
                     $customer_address = $_POST['address'];
+                    $loggedInUserID = $_SESSION['loggedInUserID'];
                     
 
                     $sql2 = "INSERT INTO table_order SET
@@ -101,8 +105,9 @@
                         `status` = '$status',
                         `customer_name` = '$customer_name',
                         `customer_contact` = '$customer_contact',
-                        `customer_email` = '$customer_email',
-                        `customer_address` = '$customer_address'
+                        --  `customer_email` = '$customer_email',
+                        `customer_address` = '$customer_address',
+                        `customer_id` = '$loggedInUserID'
                     ";
 
                     $res2 = mysqli_query($conn,$sql2);
@@ -115,9 +120,13 @@
                         echo "<script>window.location.href='index.php';</script>";
                     }
                 }
-                // }else{
-                //     echo "có lỗi";
-                // }
+                else{
+                    echo "<script>alert('Bạn cần đăng nhập để đặt hàng!');</script>";
+                    echo "<script>window.location.href='login.php';</script>";
+                }
+                }else {
+                    
+                }
             ?>
 
         </div>
