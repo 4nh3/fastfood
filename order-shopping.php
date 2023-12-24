@@ -114,7 +114,7 @@
                         $title = $row['title'];
                         $user_id = $row['user_id'];
                         $total = $currentPrice * $currentQuantity;
-                        $totalAmount += $price * $quantity;
+                        $totalAmount += $total;
     
                         // Thực hiện câu lệnh SQL để lưu trữ thông tin đơn hàng vào cơ sở dữ liệu
                         $sql_insert = "INSERT INTO table_order (user_id, food, price, qty, total, order_date, status, customer_name, customer_contact, customer_address, customer_id)

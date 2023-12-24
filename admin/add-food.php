@@ -30,7 +30,8 @@
                             <td>
                                 <select name="category" >
                                     <?php
-                                        $sql = "SELECT * FROM danhmuc WHERE active ='Yes' ";
+                                        $loggedInUserID = $_SESSION['loggedInUserID']; 
+                                        $sql = "SELECT * FROM danhmuc WHERE active ='Yes' AND user_id = $loggedInUserID ";
                                         $res = mysqli_query($conn, $sql);
                                         $count = mysqli_num_rows($res);
                                         if ($count > 0) {

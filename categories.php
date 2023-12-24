@@ -5,7 +5,7 @@ include('partials-front/menu.php');
 <!-- Categories Section Starts Here -->
 <section class="categories">
     <div class="container">
-        <h2 class="text-center">Explore Foods</h2>
+        <h2 class="text-center">Khám phá thức ăn</h2>
         <?php
         // Tạo truy vấn SQL ban đầu
         $sql = "SELECT danhmuc.id, danhmuc.title, danhmuc.image_name, danhmuc.title AS category_title 

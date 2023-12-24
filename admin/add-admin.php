@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
 
         if ($insertResult) {
             echo "<script>alert('Đăng kí thành công!');</script>";
-            echo "<script>window.location.href='index.php';</script>";
+            echo "<script>window.location.href='login.php';</script>";
         }
     }
 }

@@ -87,7 +87,8 @@ h3{
 .float-text{
     position: absolute;
     bottom: 50px;
-    left: 35%;
+    left: 28%;
+    width: 158px;
 }
 fieldset{
     border: 1px solid white;

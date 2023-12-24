@@ -6,6 +6,7 @@
 
             <?php
                $loggedInUserID = $_SESSION['loggedInUserID'];
+               // echo $loggedInUserID;
 
                $sql = "SELECT * FROM danhmuc  WHERE user_id = '$loggedInUserID'";
                $res = mysqli_query($conn, $sql);
@@ -37,7 +38,7 @@
             ?>
 
             <div class="col4 text-center">
-                 <h1><?php echo $count ?></h1>
+                 <h1><?php echo $count3 ?></h1>
                  <br/>
                  Tổng số lược order 
             </div>

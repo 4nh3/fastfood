@@ -2,11 +2,13 @@
     $currentPage = 'index';
     include('partials-front/menu.php');
 ?>
-
+ <div class="follow">
+    <a href="follow.php">Theo dõi đơn hàng</a>
+</div>
 <section class="categories">
     <link rel="stylesheet" href="./css/shopping.css">
     <form action="order-shopping.php" method="POST" id="checkout-form">
-
+   
     <div class="container1">
     <?php
         if (!isset($_SESSION['loggedInUserID'])) {

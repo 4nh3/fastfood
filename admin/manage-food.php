@@ -40,7 +40,7 @@
                                     <tr>
                                         <td><?php echo $stt++; ?></td>
                                         <td><?php echo $title; ?></td>
-                                        <td><?php echo $description; ?></td>
+                                        <td style="width:350px; text-align: justify;" ><?php echo $description; ?></td>
                                         <td><?php echo $price; ?></td>
                                         <td>
                                                 <?php 
